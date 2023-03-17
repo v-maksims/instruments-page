@@ -1,12 +1,12 @@
-import { PIANO_DEMO_SOUNDS } from '../../global/constants';
 import { useAppDispatch, useAppSelector } from '../../store/storeHooks';
+import { TRIANGLE_DEMO_SOUNDS, TRIANGLE } from '../../global/constants';
 import { setAutoPlay } from '../../store/instrumentsSlice';
 
-import Piano from '../../components/Piano/Piano/Piano';
-import useAutoPlay from '../../hooks/useAutoPlay';
 import InstrumentPage from '../../components/InstrumentPage/InstrumentPage';
+import Triangle from '../../components/Triangle/Triangle';
+import useAutoPlay from '../../hooks/useAutoPlay';
 
-const PianoPage = () => {
+const TrianglePage = () => {
     const { isAutoPlay } = useAppSelector((store) => store.instruments);
     const dispatch = useAppDispatch();
 
@@ -20,13 +20,13 @@ const PianoPage = () => {
     return (
         <InstrumentPage
             disabled={isAutoPlay}
-            title='piano'
+            title='triangle'
             onDemoClick={demoBtnHandler}
-            soundsDemo={PIANO_DEMO_SOUNDS}
+            soundsDemo={TRIANGLE_DEMO_SOUNDS}
         >
-            <Piano isAutoPlay={isAutoPlay} />
+            <Triangle isAutoPlay={isAutoPlay} notes={TRIANGLE}/>
         </InstrumentPage>
     );
 };
 
-export default PianoPage;
+export default TrianglePage;
